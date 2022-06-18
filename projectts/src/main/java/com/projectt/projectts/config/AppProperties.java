@@ -1,4 +1,4 @@
-package ebaza.codejava.config;
+package com.projectt.projectts.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;

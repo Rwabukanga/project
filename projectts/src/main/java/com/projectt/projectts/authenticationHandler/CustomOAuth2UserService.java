@@ -2,9 +2,10 @@ package com.projectt.projectts.authenticationHandler;
 
 import java.util.Optional;
 
+import javax.security.sasl.AuthenticationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -12,14 +13,16 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import ebaza.codejava.domain.ECategory;
-import ebaza.codejava.domain.EProvider;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.security.UserPrincipal;
-import ebaza.codejava.security.oauth2.user.OAuth2UserInfo;
-import ebaza.codejava.security.oauth2.user.OAuth2UserInfoFactory;
-import ebaza.codejava.service.IUserService;
-import ebaza.codejava.utility.OAuth2AuthenticationProcessingException;
+import com.projectt.projectts.domain.ECategory;
+import com.projectt.projectts.domain.EProvider;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.security.UserPrincipal;
+import com.projectt.projectts.security.oauth2.user.OAuth2UserInfo;
+import com.projectt.projectts.security.oauth2.user.OAuth2UserInfoFactory;
+import com.projectt.projectts.service.IUserService;
+import com.projectt.projectts.utility.OAuth2AuthenticationProcessingException;
+
+
 
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {

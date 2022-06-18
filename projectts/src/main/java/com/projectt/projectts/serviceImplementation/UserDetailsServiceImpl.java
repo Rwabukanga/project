@@ -1,13 +1,15 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import ebaza.codejava.domain.MyUserDetails;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.repository.IUserRepository;
+import com.projectt.projectts.domain.MyUserDetails;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.repository.IUserRepository;
+
+
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 

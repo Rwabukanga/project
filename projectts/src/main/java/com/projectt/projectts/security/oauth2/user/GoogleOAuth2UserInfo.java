@@ -1,4 +1,4 @@
-package ebaza.codejava.security.oauth2.user;
+package com.projectt.projectts.security.oauth2.user;
 
 import java.util.Map;
 

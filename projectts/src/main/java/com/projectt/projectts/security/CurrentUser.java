@@ -1,4 +1,4 @@
-package ebaza.codejava.security;
+package com.projectt.projectts.security;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import java.lang.annotation.*;

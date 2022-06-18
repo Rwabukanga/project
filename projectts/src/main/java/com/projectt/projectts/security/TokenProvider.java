@@ -1,4 +1,4 @@
-package ebaza.codejava.security;
+package com.projectt.projectts.security;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,7 +6,8 @@ import java.util.UUID;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import ebaza.codejava.config.AppProperties;
+import com.projectt.projectts.config.AppProperties;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

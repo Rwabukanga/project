@@ -1,10 +1,11 @@
-package ebaza.codejava.innerdomain;
+package com.projectt.projectts.innerdomain;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import ebaza.codejava.domain.ECategory;
-import ebaza.codejava.domain.Gender;
+import com.projectt.projectts.domain.ECategory;
+import com.projectt.projectts.domain.Gender;
+
 import lombok.Getter;
 import lombok.Setter;
 

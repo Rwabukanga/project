@@ -1,7 +1,5 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -11,13 +9,14 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ebaza.codejava.domain.EProvider;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.innerdomain.Userlogin;
-import ebaza.codejava.repository.IUserRepository;
-import ebaza.codejava.service.IUserService;
-import ebaza.codejava.utility.IUserMessage;
-import ebaza.codejava.utility.ResponseBean;
+import com.projectt.projectts.domain.EProvider;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.innerdomain.Userlogin;
+import com.projectt.projectts.repository.IUserRepository;
+import com.projectt.projectts.service.IUserService;
+import com.projectt.projectts.utility.IUserMessage;
+import com.projectt.projectts.utility.ResponseBean;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.persistance.service.AbstractService;
 

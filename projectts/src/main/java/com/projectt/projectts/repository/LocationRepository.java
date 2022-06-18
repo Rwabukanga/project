@@ -1,4 +1,4 @@
-package ebaza.codejava.repository;
+package com.projectt.projectts.repository;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -7,7 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import ebaza.codejava.domain.Location;
+import com.projectt.projectts.domain.Location;
+
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.repo.IBaseRepository;
 

@@ -1,4 +1,15 @@
-package ebaza.codejava.authenticationHandler;
+package com.projectt.projectts.authenticationHandler;
+
+import static com.projectt.projectts.authenticationHandler.HttpCookieOAuth2AuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
+
+import java.io.IOException;
+import java.net.URI;
+import java.util.Optional;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -6,21 +17,10 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ebaza.codejava.config.AppProperties;
-import ebaza.codejava.security.TokenProvider;
-import ebaza.codejava.util.CookieUtils;
-import ebaza.codejava.utility.BadRequestException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import static ebaza.codejava.authenticationHandler.HttpCookieOAuth2AuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
-
-import java.io.IOException;
-import java.net.URI;
-import java.util.Optional;
+import com.projectt.projectts.config.AppProperties;
+import com.projectt.projectts.security.TokenProvider;
+import com.projectt.projectts.util.CookieUtils;
+import com.projectt.projectts.utility.BadRequestException;
 
 @Component
 public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

@@ -1,4 +1,4 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import javax.validation.Valid;
 
@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ebaza.codejava.domain.ECategory;
-import ebaza.codejava.domain.EProvider;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.payload.AuthResponse;
-import ebaza.codejava.payload.LoginRequest;
-import ebaza.codejava.payload.SignUpRequest;
-import ebaza.codejava.security.TokenProvider;
-import ebaza.codejava.service.IUserService;
+import com.projectt.projectts.domain.ECategory;
+import com.projectt.projectts.domain.EProvider;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.payload.AuthResponse;
+import com.projectt.projectts.payload.LoginRequest;
+import com.projectt.projectts.payload.SignUpRequest;
+import com.projectt.projectts.security.TokenProvider;
+import com.projectt.projectts.service.IUserService;
+
+
 
 @RestController
 @RequestMapping("/auth")

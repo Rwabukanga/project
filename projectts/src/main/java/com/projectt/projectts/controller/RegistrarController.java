@@ -1,4 +1,4 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import java.util.UUID;
 
@@ -20,15 +20,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ebaza.codejava.domain.ECategory;
-import ebaza.codejava.domain.Location;
-import ebaza.codejava.domain.Registrar;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.innerdomain.innerRegistrar;
-import ebaza.codejava.service.ILocationService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.service.IUserService;
-import ebaza.codejava.utility.IConstants;
+import com.projectt.projectts.domain.ECategory;
+import com.projectt.projectts.domain.Location;
+import com.projectt.projectts.domain.Registrar;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.innerdomain.innerRegistrar;
+import com.projectt.projectts.service.ILocationService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.service.IUserService;
+import com.projectt.projectts.utility.IConstants;
+
+
 
 @RestController
 @RequestMapping("/api")

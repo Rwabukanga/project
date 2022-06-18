@@ -1,4 +1,4 @@
-package ebaza.codejava.payload;
+package com.projectt.projectts.payload;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

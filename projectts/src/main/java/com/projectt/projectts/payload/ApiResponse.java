@@ -1,4 +1,4 @@
-package ebaza.codejava.payload;
+package com.projectt.projectts.payload;
 
 public class ApiResponse {
     private boolean success;

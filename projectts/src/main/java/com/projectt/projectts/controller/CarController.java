@@ -1,9 +1,8 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,15 +24,15 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import ebaza.codejava.domain.Car;
-import ebaza.codejava.domain.EPropertyType;
-import ebaza.codejava.domain.Registrar;
-import ebaza.codejava.service.IGalleryService;
-import ebaza.codejava.service.ICarService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.utility.IConstants;
-import ebaza.codejava.utility.IUserMessage;
-import ebaza.codejava.utility.ResponseBean;
+import com.projectt.projectts.domain.Car;
+import com.projectt.projectts.domain.EPropertyType;
+import com.projectt.projectts.domain.Registrar;
+import com.projectt.projectts.service.ICarService;
+import com.projectt.projectts.service.IGalleryService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.utility.IConstants;
+
+
 
 @RestController
 @CrossOrigin

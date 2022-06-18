@@ -1,10 +1,12 @@
-package ebaza.codejava.service;
+package com.projectt.projectts.service;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import ebaza.codejava.domain.User;
-import ebaza.codejava.innerdomain.Userlogin;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.innerdomain.Userlogin;
+
+
 
 public interface IUserService {
 

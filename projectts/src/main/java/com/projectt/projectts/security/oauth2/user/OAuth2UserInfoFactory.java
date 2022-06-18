@@ -1,9 +1,11 @@
-package ebaza.codejava.security.oauth2.user;
+package com.projectt.projectts.security.oauth2.user;
 
 import java.util.Map;
 
-import ebaza.codejava.domain.EProvider;
-import ebaza.codejava.utility.OAuth2AuthenticationProcessingException;
+import com.projectt.projectts.domain.EProvider;
+import com.projectt.projectts.utility.OAuth2AuthenticationProcessingException;
+
+
 
 public class OAuth2UserInfoFactory {
 

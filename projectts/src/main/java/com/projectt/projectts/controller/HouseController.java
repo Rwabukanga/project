@@ -1,8 +1,7 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,14 +23,16 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import ebaza.codejava.domain.EPropertyType;
-import ebaza.codejava.domain.House;
-import ebaza.codejava.domain.Registrar;
-import ebaza.codejava.innerdomain.InnerHouse;
-import ebaza.codejava.service.IGalleryService;
-import ebaza.codejava.service.IHouseService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.utility.IConstants;
+import com.projectt.projectts.domain.EPropertyType;
+import com.projectt.projectts.domain.House;
+import com.projectt.projectts.domain.Registrar;
+import com.projectt.projectts.innerdomain.InnerHouse;
+import com.projectt.projectts.service.IGalleryService;
+import com.projectt.projectts.service.IHouseService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.utility.IConstants;
+
+
 
 @RestController
 @RequestMapping("/houses")

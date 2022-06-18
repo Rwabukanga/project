@@ -1,4 +1,4 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,12 +16,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import ebaza.codejava.domain.Gallery;
-import ebaza.codejava.domain.Plot;
-import ebaza.codejava.repository.PlotRepository;
-import ebaza.codejava.service.IGalleryService;
-import ebaza.codejava.service.PlotService;
-import ebaza.codejava.utility.IUserMessage;
+import com.projectt.projectts.domain.Gallery;
+import com.projectt.projectts.domain.Plot;
+import com.projectt.projectts.repository.PlotRepository;
+import com.projectt.projectts.service.IGalleryService;
+import com.projectt.projectts.service.PlotService;
+import com.projectt.projectts.utility.IUserMessage;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.files.properties.FileStoragePropertie;
 import ebaza.framework.files.service.IFileStorageService;

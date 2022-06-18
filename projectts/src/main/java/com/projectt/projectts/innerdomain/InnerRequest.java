@@ -1,4 +1,4 @@
-package ebaza.codejava.innerdomain;
+package com.projectt.projectts.innerdomain;
 
 import lombok.Getter;
 import lombok.Setter;

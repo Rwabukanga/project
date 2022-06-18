@@ -1,4 +1,4 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -11,10 +11,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ebaza.codejava.domain.Location;
-import ebaza.codejava.repository.LocationRepository;
-import ebaza.codejava.service.ILocationService;
-import ebaza.codejava.utility.IUserMessage;
+import com.projectt.projectts.domain.Location;
+import com.projectt.projectts.repository.LocationRepository;
+import com.projectt.projectts.service.ILocationService;
+import com.projectt.projectts.utility.IUserMessage;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.service.AbstractService;

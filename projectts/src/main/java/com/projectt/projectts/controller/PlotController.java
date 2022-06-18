@@ -1,4 +1,4 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,13 +24,15 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import ebaza.codejava.domain.EPropertyType;
-import ebaza.codejava.domain.Plot;
-import ebaza.codejava.domain.Registrar;
-import ebaza.codejava.service.IGalleryService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.service.PlotService;
-import ebaza.codejava.utility.IConstants;
+import com.projectt.projectts.domain.EPropertyType;
+import com.projectt.projectts.domain.Plot;
+import com.projectt.projectts.domain.Registrar;
+import com.projectt.projectts.service.IGalleryService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.service.PlotService;
+import com.projectt.projectts.utility.IConstants;
+
+
 
 
 

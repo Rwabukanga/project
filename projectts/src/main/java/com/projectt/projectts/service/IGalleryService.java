@@ -1,11 +1,13 @@
-package ebaza.codejava.service;
+package com.projectt.projectts.service;
 
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import ebaza.codejava.domain.Gallery;
+import com.projectt.projectts.domain.Gallery;
+
+
 
 
 

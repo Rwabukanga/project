@@ -1,4 +1,4 @@
-package ebaza.codejava.repository;
+package com.projectt.projectts.repository;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import ebaza.codejava.domain.User;
+import com.projectt.projectts.domain.User;
+
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.repo.IBaseRepository;
 

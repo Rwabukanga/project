@@ -1,8 +1,9 @@
-package ebaza.codejava.repository;
+package com.projectt.projectts.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ebaza.codejava.domain.Product;
+import com.projectt.projectts.domain.Product;
+
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 

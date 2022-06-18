@@ -1,4 +1,4 @@
-package ebaza.codejava.service;
+package com.projectt.projectts.service;
 
 
 
@@ -9,7 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.multipart.MultipartFile;
 
-import ebaza.codejava.domain.Plot;
+import com.projectt.projectts.domain.Plot;
+
+
 
 
 

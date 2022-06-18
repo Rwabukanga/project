@@ -1,4 +1,4 @@
-package ebaza.codejava.domain;
+package com.projectt.projectts.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

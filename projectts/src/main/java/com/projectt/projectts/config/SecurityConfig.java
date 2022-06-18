@@ -1,4 +1,4 @@
-package ebaza.codejava.config;
+package com.projectt.projectts.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,15 +13,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
-import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import ebaza.codejava.authenticationHandler.CustomOAuth2UserService;
-import ebaza.codejava.authenticationHandler.HttpCookieOAuth2AuthorizationRequestRepository;
-import ebaza.codejava.authenticationHandler.OAuth2AuthenticationFailureHandler;
-import ebaza.codejava.authenticationHandler.OAuth2AuthenticationSuccessHandler;
-import ebaza.codejava.security.*;
+import com.projectt.projectts.authenticationHandler.CustomOAuth2UserService;
+import com.projectt.projectts.authenticationHandler.HttpCookieOAuth2AuthorizationRequestRepository;
+import com.projectt.projectts.authenticationHandler.OAuth2AuthenticationFailureHandler;
+import com.projectt.projectts.authenticationHandler.OAuth2AuthenticationSuccessHandler;
+import com.projectt.projectts.security.CustomUserDetailsService;
+import com.projectt.projectts.security.RestAuthenticationEntryPoint;
+import com.projectt.projectts.security.TokenAuthenticationFilter;
+
+
 
 @Configuration
 @EnableWebSecurity

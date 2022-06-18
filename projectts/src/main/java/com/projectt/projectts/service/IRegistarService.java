@@ -1,13 +1,14 @@
-package ebaza.codejava.service;
+package com.projectt.projectts.service;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import ebaza.codejava.domain.Registrar;
-import ebaza.codejava.domain.User;
+import com.projectt.projectts.domain.Registrar;
+import com.projectt.projectts.domain.User;
+
+
 
 
 

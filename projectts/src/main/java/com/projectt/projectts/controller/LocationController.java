@@ -1,4 +1,4 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 import java.util.UUID;
 
@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ebaza.codejava.domain.Location;
-import ebaza.codejava.service.ILocationService;
-import ebaza.codejava.utility.IConstants;
+import com.projectt.projectts.domain.Location;
+import com.projectt.projectts.service.ILocationService;
+import com.projectt.projectts.utility.IConstants;
+
+
 
 @RestController
 @RequestMapping("api/locations")

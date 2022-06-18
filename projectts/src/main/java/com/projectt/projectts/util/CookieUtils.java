@@ -1,4 +1,4 @@
-package ebaza.codejava.util;
+package com.projectt.projectts.util;
 
 import org.springframework.util.SerializationUtils;
 import javax.servlet.http.Cookie;

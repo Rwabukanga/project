@@ -1,4 +1,4 @@
-package ebaza.codejava.security;
+package com.projectt.projectts.security;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -9,9 +9,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ebaza.codejava.domain.User;
-import ebaza.codejava.repository.IUserRepository;
-import ebaza.codejava.utility.IUserMessage;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.repository.IUserRepository;
+import com.projectt.projectts.utility.IUserMessage;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.persistance.service.AbstractService;
 

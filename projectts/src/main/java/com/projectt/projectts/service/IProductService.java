@@ -1,12 +1,14 @@
-package ebaza.codejava.service;
+package com.projectt.projectts.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ebaza.codejava.domain.Product;
-import ebaza.codejava.repository.ProductRepository;
+import com.projectt.projectts.domain.Product;
+import com.projectt.projectts.repository.ProductRepository;
+
+
 
 @Service
 public class IProductService {

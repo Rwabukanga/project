@@ -1,13 +1,10 @@
-package ebaza.codejava.controller;
+package com.projectt.projectts.controller;
 
 
 
-import java.util.Locale.Category;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,30 +15,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ebaza.codejava.domain.ApprovalStatus;
-import ebaza.codejava.domain.BiddingRequest;
-import ebaza.codejava.domain.Car;
-import ebaza.codejava.domain.ECategory;
-import ebaza.codejava.domain.House;
-import ebaza.codejava.domain.Plot;
-import ebaza.codejava.domain.User;
-import ebaza.codejava.innerdomain.InnerApproval;
-import ebaza.codejava.innerdomain.InnerRequest;
-import ebaza.codejava.service.IBiddingService;
-import ebaza.codejava.service.ICarService;
-import ebaza.codejava.service.IHouseService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.service.IUserService;
-import ebaza.codejava.service.PlotService;
-import ebaza.codejava.utility.IConstants;
-import ebaza.codejava.utility.IUserMessage;
-import ebaza.codejava.utility.ResponseBean;
+import com.projectt.projectts.domain.BiddingRequest;
+import com.projectt.projectts.service.IBiddingService;
+import com.projectt.projectts.service.ICarService;
+import com.projectt.projectts.service.IHouseService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.service.IUserService;
+import com.projectt.projectts.service.PlotService;
+import com.projectt.projectts.utility.IConstants;
 
 
 

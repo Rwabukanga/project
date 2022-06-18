@@ -1,4 +1,4 @@
-package ebaza.codejava.utility;
+package com.projectt.projectts.utility;
 
 public interface IUserMessage {
 

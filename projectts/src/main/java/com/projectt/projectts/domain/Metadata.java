@@ -1,4 +1,4 @@
-package ebaza.codejava.domain;
+package com.projectt.projectts.domain;
 
 import java.util.Date;
 import java.util.UUID;

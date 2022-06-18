@@ -1,4 +1,4 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,17 +10,16 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ebaza.codejava.domain.BiddingRequest;
-import ebaza.codejava.innerdomain.InnerApproval;
-import ebaza.codejava.innerdomain.InnerRequest;
-import ebaza.codejava.repository.BiddingRepository;
-import ebaza.codejava.service.IBiddingService;
-import ebaza.codejava.service.ICarService;
-import ebaza.codejava.service.IHouseService;
-import ebaza.codejava.service.IRegistarService;
-import ebaza.codejava.service.IUserService;
-import ebaza.codejava.service.PlotService;
-import ebaza.codejava.utility.IUserMessage;
+import com.projectt.projectts.domain.BiddingRequest;
+import com.projectt.projectts.repository.BiddingRepository;
+import com.projectt.projectts.service.IBiddingService;
+import com.projectt.projectts.service.ICarService;
+import com.projectt.projectts.service.IHouseService;
+import com.projectt.projectts.service.IRegistarService;
+import com.projectt.projectts.service.IUserService;
+import com.projectt.projectts.service.PlotService;
+import com.projectt.projectts.utility.IUserMessage;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.service.AbstractService;

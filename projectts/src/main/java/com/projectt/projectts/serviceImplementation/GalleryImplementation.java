@@ -1,4 +1,4 @@
-package ebaza.codejava.serviceImplementation;
+package com.projectt.projectts.serviceImplementation;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -10,10 +10,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ebaza.codejava.domain.Gallery;
-import ebaza.codejava.repository.GalleryRepository;
-import ebaza.codejava.service.IGalleryService;
-import ebaza.codejava.utility.IUserMessage;
+import com.projectt.projectts.domain.Gallery;
+import com.projectt.projectts.repository.GalleryRepository;
+import com.projectt.projectts.service.IGalleryService;
+import com.projectt.projectts.utility.IUserMessage;
+
 import ebaza.common.framework.exception.RequestException;
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.service.AbstractService;

@@ -1,4 +1,4 @@
-package ebaza.codejava.config;
+package com.projectt.projectts.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

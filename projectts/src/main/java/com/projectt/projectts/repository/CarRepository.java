@@ -1,4 +1,4 @@
-package ebaza.codejava.repository;
+package com.projectt.projectts.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import ebaza.codejava.domain.Car;
+import com.projectt.projectts.domain.Car;
+
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.repo.IBaseRepository;
 @Repository
