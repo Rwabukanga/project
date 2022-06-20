@@ -12,7 +12,7 @@ import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.repo.IBaseRepository;;
 
 @Repository
-public interface BiddingRepository extends IBaseRepository<BiddingRequest, UUID> {
+public interface BiddingRquestRepository extends IBaseRepository<BiddingRequest, UUID> {
 	
 	List<BiddingRequest> findByUserIdAndStatus(String ownerUuid,EStatus status);
 

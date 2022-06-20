@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projectt.projectts.domain.BiddingRequest;
-import com.projectt.projectts.repository.BiddingRepository;
-import com.projectt.projectts.service.IBiddingService;
+import com.projectt.projectts.repository.BiddingRquestRepository;
+import com.projectt.projectts.service.IBiddingRequestService;
 import com.projectt.projectts.service.ICarService;
 import com.projectt.projectts.service.IHouseService;
 import com.projectt.projectts.service.IRegistarService;
@@ -26,10 +26,10 @@ import ebaza.framework.persistance.service.AbstractService;
 
 @Service
 @Transactional
-public class BiddingImplementation extends AbstractService implements IBiddingService {
+public class BiddingRequestImplementation extends AbstractService implements IBiddingRequestService {
 
 	@Autowired
-	BiddingRepository brepo;
+	BiddingRquestRepository brepo;
 
 	@Autowired
 	IUserService userservice;

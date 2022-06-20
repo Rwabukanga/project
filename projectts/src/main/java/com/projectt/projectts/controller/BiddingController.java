@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projectt.projectts.domain.BiddingRequest;
-import com.projectt.projectts.service.IBiddingService;
+import com.projectt.projectts.service.IBiddingRequestService;
 import com.projectt.projectts.service.ICarService;
 import com.projectt.projectts.service.IHouseService;
 import com.projectt.projectts.service.IRegistarService;
@@ -37,7 +37,7 @@ import com.projectt.projectts.utility.IConstants;
 public class BiddingController  {
 
 	@Autowired
-	IBiddingService biddingservice;
+	IBiddingRequestService biddingservice;
 	
 	@Autowired
 	IUserService userservice;

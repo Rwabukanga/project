@@ -7,18 +7,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.projectt.projectts.domain.BiddingRequest;
-
+import com.projectt.projectts.domain.BidPayment;
 
 
 @Service
-public interface IBiddingService {
+public interface IBidPaymentService {
 	
-	BiddingRequest create(BiddingRequest request);
+	BidPayment create(BidPayment payment);
 	void delete(String uuiid);
-	BiddingRequest findById(UUID id);
-	Page<BiddingRequest>findAll(PageRequest pageRequest);
-	List<BiddingRequest>findByUser(UUID  id);
-	
+	BidPayment findById(UUID id);
+	Page<BidPayment>findAll(PageRequest pageRequest);
+	List<BidPayment>findByClient(UUID  id);
 
 }
