@@ -31,6 +31,10 @@ public class Request extends DomainDTO {
 	    @Enumerated(EnumType.STRING)
 	    private PropertyType propertType;
 	    
+	    @NotEmpty(message= "{description.notNull}")
+	   	@Column(name = "description")
+	    private String description;
+	    
 	    @NotEmpty(message= "{referenceId.notNull}")
 	   	@Column(name = "referenceId")
 	    private String referenceId;
