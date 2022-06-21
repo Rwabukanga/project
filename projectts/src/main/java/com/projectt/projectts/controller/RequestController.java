@@ -29,7 +29,10 @@ import com.projectt.projectts.domain.Car;
 import com.projectt.projectts.domain.EPropertyType;
 import com.projectt.projectts.domain.Registrar;
 import com.projectt.projectts.domain.Request;
+import com.projectt.projectts.innerdomain.CarRequestData;
+import com.projectt.projectts.innerdomain.HouseRequestData;
 import com.projectt.projectts.innerdomain.InnerRequestData;
+import com.projectt.projectts.innerdomain.PlotRequestData;
 import com.projectt.projectts.service.IRequestService;
 import com.projectt.projectts.utility.IConstants;
 
@@ -61,6 +64,25 @@ public class RequestController {
 	public ResponseEntity<Object> RegisterRequest(@RequestBody InnerRequestData params, HttpSession session) throws ParseException {
 
 		return new ResponseEntity<>(requestService.createInitialRequest(params), HttpStatus.OK);
+	}
+
+	
+	@RequestMapping(value = "{id}/plot/complete_request/", method = RequestMethod.POST)
+	public ResponseEntity<Object> PlotRequest(@RequestBody PlotRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+
+		return new ResponseEntity<>(requestService.createPlotRequest(params, id), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "{id}/car/complete_request/", method = RequestMethod.POST)
+	public ResponseEntity<Object> CarRequest(@RequestBody CarRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+
+		return new ResponseEntity<>(requestService.createCarRequest(params, id), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "{id}/car/complete_request/", method = RequestMethod.POST)
+	public ResponseEntity<Object> HouseRequest(@RequestBody HouseRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+
+		return new ResponseEntity<>(requestService.createHouseRequest(params, id), HttpStatus.OK);
 	}
 
 
