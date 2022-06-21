@@ -5,12 +5,12 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
+
 
 import com.projectt.projectts.domain.BidPayment;
 
 
-@Service
+
 public interface IBidPaymentService {
 	
 	BidPayment create(BidPayment payment);

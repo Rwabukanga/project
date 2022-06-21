@@ -4,45 +4,45 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.projectt.projectts.domain.BiddingRequest;
-import com.projectt.projectts.domain.Request;
-import com.projectt.projectts.repository.RequestRepository;
-import com.projectt.projectts.service.IRequestService;
+import com.projectt.projectts.domain.BidPayment;
+import com.projectt.projectts.domain.LastBid;
+import com.projectt.projectts.repository.LastBidRepository;
+import com.projectt.projectts.service.ILastBidService;
 import com.projectt.projectts.utility.IUserMessage;
 
 import ebaza.common.framework.exception.RequestException;
+import ebaza.common.framework.service.AbstractService;
 import ebaza.framework.persistance.enumerator.EStatus;
-import ebaza.framework.persistance.service.AbstractService;
 
 @Service
 @Transactional
-public class RequestImplementattion extends AbstractService implements IRequestService {
-	
-	@Autowired
-	RequestRepository Rrepo;
+public class LastBidServiceImpl extends AbstractService implements ILastBidService {
 
+	@Autowired
+	LastBidRepository lrepo;
+	
 	@Override
-	public Request create(Request request) {
+	public LastBid create(LastBid last) {
 		try {
-			return Rrepo.save(request);
+			return lrepo.save(last);
 		} catch (Exception e) {
 			throw handleException(e);
 		}
-
 	}
 
 	@Override
 	public void delete(String uuid) {
 		try {
-			Optional<Request> p = Rrepo.findByIdAndStatus(UUID.fromString(uuid), EStatus.ACTIVE);
+			Optional<LastBid> p = lrepo.findByIdAndStatus(UUID.fromString(uuid), EStatus.ACTIVE);
 			if (p.isPresent()) {
-				Request br = p.get();
+				LastBid br = p.get();
 				br.setStatus(EStatus.INACTIVE);
 				this.create(br);
 			}
@@ -53,9 +53,9 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	}
 
 	@Override
-	public Request findById(UUID id) {
+	public LastBid findById(UUID id) {
 		try {
-			Optional<Request> br = Rrepo.findByIdAndStatus(id, EStatus.ACTIVE);
+			Optional<LastBid> br = lrepo.findByIdAndStatus(id, EStatus.ACTIVE);
 			if (br.isPresent()) {
 				return br.get();
 			} else {
@@ -67,32 +67,21 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	}
 
 	@Override
-	public Page<Request> findAll(PageRequest pageRequest) {
+	public Page<LastBid> findAll(PageRequest pageRequest) {
 		try {
-			return Rrepo.findAll(pageRequest);
+			return lrepo.findAll(pageRequest);
 		} catch (Exception e) {
 			throw handleException(e);
 		}
 	}
 
 	@Override
-	public List<Request> findByUser(UUID id) {
+	public List<LastBid> findByClient(UUID id) {
 		try {
-			return Rrepo.findByUserId(id);
+			return lrepo.findByClientId(id);
 		} catch (Exception ex) {
 			throw handleException(ex);
 		}
-
-	}
-
-	@Override
-	public List<Request> findByLocation(UUID id) {
-		try {
-			return Rrepo.findByLocationId(id);
-		} catch (Exception ex) {
-			throw handleException(ex);
-		}
-		
 	}
 
 }

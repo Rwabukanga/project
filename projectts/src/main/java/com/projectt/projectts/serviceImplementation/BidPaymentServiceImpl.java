@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import com.projectt.projectts.domain.BidPayment;
 import com.projectt.projectts.domain.Request;
@@ -18,6 +21,8 @@ import ebaza.common.framework.exception.RequestException;
 import ebaza.common.framework.service.AbstractService;
 import ebaza.framework.persistance.enumerator.EStatus;
 
+@Service
+@Transactional
 public class BidPaymentServiceImpl extends AbstractService implements IBidPaymentService {
 	
 	
