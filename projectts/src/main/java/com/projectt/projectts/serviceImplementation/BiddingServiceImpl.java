@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projectt.projectts.domain.Bidding;
-import com.projectt.projectts.domain.Request;
+
 import com.projectt.projectts.repository.BidRepository;
 import com.projectt.projectts.service.IBidService;
 import com.projectt.projectts.utility.IUserMessage;

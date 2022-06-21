@@ -1,5 +1,7 @@
 package com.projectt.projectts.domain;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,27 +18,11 @@ import lombok.Setter;
 @Setter
 public class BiddingRequest  extends DomainDTO {
 	
+	@Column(name="UUID")
+	private String uuid=UUID.randomUUID().toString();
 	
-    
-    @NotEmpty(message= "{FirstName.notNull}")
-	@Column(name = "firstName")
-    private String firstName;
-    
-    @NotEmpty(message= "{LastName.notNull}")
-	@Column(name = "lastName")
-    private String lastName;
-    
-    @NotEmpty(message= "{PhoneNumber.notNull}")
-	@Column(name = "phoneNumber")
-    private String phoneNumber;
-    
-    @NotEmpty(message= "{Email.notNull}")
-	@Column(name = "email")
-    private String email;
-    
-    @NotEmpty(message= "{idNumber.notNull}")
-   	@Column(name = "idNumber")
-    private String idNumber;
+	@Column(name="minAmount")
+	private double minAmount;
     
     @NotEmpty(message= "{referenceId.notNull}")
    	@Column(name = "referenceId")

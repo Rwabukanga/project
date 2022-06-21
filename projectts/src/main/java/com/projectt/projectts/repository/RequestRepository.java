@@ -22,4 +22,6 @@ public interface RequestRepository extends IBaseRepository<Request, UUID> {
     List<Request> findByStatus(EStatus status );
     
     List<Request> findByUserId(UUID id );
+    
+    List<Request> findByLocationId(UUID id );
 }

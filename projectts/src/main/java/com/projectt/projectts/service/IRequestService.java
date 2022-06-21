@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.projectt.projectts.domain.Request;
+import com.projectt.projectts.innerdomain.InnerRequestData;
 
 @Service
 public interface IRequestService {
@@ -18,4 +19,5 @@ public interface IRequestService {
 	Page<Request>findAll(PageRequest pageRequest);
 	List<Request>findByUser(UUID  id);
 	List<Request> findByLocation(UUID id );
+	Request createInitialRequest(InnerRequestData data);
 }

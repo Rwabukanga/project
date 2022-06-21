@@ -11,7 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projectt.projectts.domain.BiddingRequest;
+import com.projectt.projectts.domain.Location;
+import com.projectt.projectts.domain.PropertyType;
 import com.projectt.projectts.domain.Request;
+import com.projectt.projectts.domain.User;
+import com.projectt.projectts.innerdomain.InnerRequestData;
+import com.projectt.projectts.repository.IUserRepository;
+import com.projectt.projectts.repository.LocationRepository;
 import com.projectt.projectts.repository.RequestRepository;
 import com.projectt.projectts.service.IRequestService;
 import com.projectt.projectts.utility.IUserMessage;
@@ -26,6 +32,12 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	
 	@Autowired
 	RequestRepository Rrepo;
+	
+	@Autowired
+	LocationRepository lrepo;
+	
+	@Autowired 
+	IUserRepository urepo;
 
 	@Override
 	public Request create(Request request) {
@@ -90,6 +102,33 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		try {
 			return Rrepo.findByLocationId(id);
 		} catch (Exception ex) {
+			throw handleException(ex);
+		}
+		
+	}
+
+	@Override
+	public Request createInitialRequest(InnerRequestData data) {
+		try {
+			Request r=new Request();
+			Location l=null;
+			User u=null;
+			Optional<Location> location =lrepo.findById(UUID.fromString(data.getLocationId()));
+			if (location.isPresent()) {
+				l=location.get();
+			}
+			Optional<User> user =urepo.findById(UUID.fromString(data.getLocationId()));
+			if (user.isPresent()) {
+				u=user.get();
+			}
+			
+			r.setDescription(data.getDescription());
+			r.setLocation(l);
+			r.setUser(u);
+			r.setPropertType(PropertyType.valueOf(data.getPropertyType()));
+			
+			return r;
+		}catch (Exception ex) {
 			throw handleException(ex);
 		}
 		
