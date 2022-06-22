@@ -19,7 +19,7 @@ public class Bidding extends DomainDTO {
 	@Column(name="Amount")
 	private double Amount;
 	
-	@OneToMany
+	@ManyToOne
 	private BiddingRequest request;
     
 	@ManyToOne
