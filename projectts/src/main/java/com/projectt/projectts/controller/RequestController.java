@@ -88,7 +88,7 @@ public class RequestController {
 
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/delete/{uuid}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> deleteCar(HttpServletRequest request, @PathVariable String uuid) {
+	public ResponseEntity<?> deleteRequest(HttpServletRequest request, @PathVariable String uuid) {
 		requestService.delete(uuid);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

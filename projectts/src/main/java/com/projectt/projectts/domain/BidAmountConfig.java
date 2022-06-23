@@ -20,4 +20,5 @@ public class BidAmountConfig extends DomainDTO {
 	 @Enumerated(EnumType.STRING)
 	    private ConfigType type;
 
+
 }

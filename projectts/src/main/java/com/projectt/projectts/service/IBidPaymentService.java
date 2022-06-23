@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 
 
 import com.projectt.projectts.domain.BidPayment;
+import com.projectt.projectts.innerdomain.InnerPaymentData;
 
 
 
@@ -18,5 +19,6 @@ public interface IBidPaymentService {
 	BidPayment findById(UUID id);
 	Page<BidPayment>findAll(PageRequest pageRequest);
 	List<BidPayment>findByClient(UUID  id);
+	BidPayment createPayment(InnerPaymentData payment);
 
 }

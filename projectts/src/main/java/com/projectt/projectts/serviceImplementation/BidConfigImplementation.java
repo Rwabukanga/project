@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projectt.projectts.domain.BidAmountConfig;
+import com.projectt.projectts.domain.ConfigType;
 import com.projectt.projectts.domain.Request;
+import com.projectt.projectts.innerdomain.InnerConfigData;
 import com.projectt.projectts.repository.BidConfigRepository;
 import com.projectt.projectts.service.IBidConfigService;
 import com.projectt.projectts.utility.IUserMessage;
@@ -72,6 +74,15 @@ public class BidConfigImplementation  extends AbstractService implements IBidCon
 		} catch (Exception e) {
 			throw handleException(e);
 		}
+	}
+
+	@Override
+	public BidAmountConfig createConfig(InnerConfigData config) {
+		BidAmountConfig conf=new BidAmountConfig();
+		conf.setAmount(config.getAmount());
+		conf.setType(ConfigType.valueOf(config.getType()));
+		crepo.save(conf);
+		return conf;
 	}
 	
 	

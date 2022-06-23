@@ -31,6 +31,6 @@ public class BidPayment extends DomainDTO {
     
     @Enumerated(EnumType.STRING)
     private ApprovalStatus status;
-    
+
     
 }

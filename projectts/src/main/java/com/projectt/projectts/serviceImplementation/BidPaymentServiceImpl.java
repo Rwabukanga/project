@@ -11,9 +11,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import com.projectt.projectts.domain.ApprovalStatus;
 import com.projectt.projectts.domain.BidPayment;
 import com.projectt.projectts.domain.Request;
+import com.projectt.projectts.innerdomain.InnerPaymentData;
 import com.projectt.projectts.repository.BidPaymentRepository;
+import com.projectt.projectts.repository.BiddingRquestRepository;
+import com.projectt.projectts.repository.IUserRepository;
 import com.projectt.projectts.service.IBidPaymentService;
 import com.projectt.projectts.utility.IUserMessage;
 
@@ -28,6 +32,12 @@ public class BidPaymentServiceImpl extends AbstractService implements IBidPaymen
 	
 	@Autowired
 	BidPaymentRepository prepo;
+	
+	@Autowired
+	BiddingRquestRepository brepo;
+	
+	@Autowired
+	IUserRepository userRepo;
 
 	@Override
 	public BidPayment create(BidPayment payment) {
@@ -83,6 +93,18 @@ public class BidPaymentServiceImpl extends AbstractService implements IBidPaymen
 		} catch (Exception ex) {
 			throw handleException(ex);
 		}
+	}
+
+	@Override
+	public BidPayment createPayment(InnerPaymentData payment) {
+		BidPayment new_payment=new BidPayment();
+		new_payment.setAmount(payment.getAmount());
+		new_payment.setRequest(brepo.findById(UUID.fromString(payment.getRequestId())).get());
+		new_payment.setClient(userRepo.findById(UUID.fromString(payment.getClientId())).get());
+		new_payment.setStatus(ApprovalStatus.CREATED);
+		prepo.save(new_payment);
+		
+		return new_payment;
 	}
 
 }

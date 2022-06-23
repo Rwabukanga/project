@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.projectt.projectts.domain.BidAmountConfig;
+import com.projectt.projectts.innerdomain.InnerConfigData;
 
 @Service
 public interface IBidConfigService {
@@ -16,4 +17,5 @@ public interface IBidConfigService {
 	void delete(String uuid);
 	BidAmountConfig findById(UUID id);
 	Page<BidAmountConfig>findAll(PageRequest pageRequest);
+	BidAmountConfig createConfig(InnerConfigData config);
 }
