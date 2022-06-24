@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 
 
 import com.projectt.projectts.domain.Bidding;
+import com.projectt.projectts.innerdomain.InnerBidData;
 
 public interface IBidService {
 	Bidding create(Bidding bid);
@@ -15,4 +16,5 @@ public interface IBidService {
 	Bidding findById(UUID id);
 	Page<Bidding>findAll(PageRequest pageRequest);
 	List<Bidding>findByClient(UUID  id);
+	Bidding createBid(InnerBidData data);
 }

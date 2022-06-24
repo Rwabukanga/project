@@ -2,9 +2,11 @@ package com.projectt.projectts.controller;
 
 
 
+import java.text.ParseException;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,12 +17,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projectt.projectts.domain.Bidding;
 import com.projectt.projectts.domain.BiddingRequest;
+import com.projectt.projectts.innerdomain.InnerBidData;
+import com.projectt.projectts.innerdomain.InnerConfigData;
+import com.projectt.projectts.service.IBidService;
 import com.projectt.projectts.service.IBiddingRequestService;
 import com.projectt.projectts.service.ICarService;
 import com.projectt.projectts.service.IHouseService;
@@ -37,19 +44,8 @@ import com.projectt.projectts.utility.IConstants;
 public class BiddingController  {
 
 	@Autowired
-	IBiddingRequestService biddingservice;
+	IBidService biddingservice;
 	
-	@Autowired
-	IUserService userservice;
-	
-	@Autowired
-	PlotService plotservice;
-	
-	@Autowired
-	ICarService carservice;
-	
-	@Autowired
-	IHouseService houseservice;
 	
 	@Autowired
 	IRegistarService regservice;
@@ -59,16 +55,15 @@ public class BiddingController  {
 			@RequestParam(defaultValue = "10") int size) {
 		Sort sort = Sort.by(Sort.Direction.DESC, IConstants.UPDATED_DATE);
 		PageRequest pageRequest = PageRequest.of(page, size, sort);
-		Page<BiddingRequest> requests = biddingservice.findAll(pageRequest);
-	return new ResponseEntity<Object>(requests, HttpStatus.OK);
+		Page<Bidding> bids = biddingservice.findAll(pageRequest);
+	return new ResponseEntity<Object>(bids, HttpStatus.OK);
 	}
 	
 	
-	@RequestMapping(value = "registrant/{uuid}/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "user/{uuid}/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> findByRegistrant(HttpServletRequest request,@PathVariable("uuid") UUID id) {
-		
-		
-		return new ResponseEntity<Object>(biddingservice.findByUser(id), HttpStatus.OK);
+			
+		return new ResponseEntity<Object>(biddingservice.findByClient(id), HttpStatus.OK);
  	}
 	
 
@@ -85,12 +80,12 @@ public class BiddingController  {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	
+	@RequestMapping(value = "/save/", method = RequestMethod.POST)
+	public ResponseEntity<Object> MakeABid(@RequestBody InnerBidData params, HttpSession session) throws ParseException {
 
-
-
-
-
-
+		return new ResponseEntity<>(biddingservice.createBid(params), HttpStatus.OK);
+	}
 
 	
 }
