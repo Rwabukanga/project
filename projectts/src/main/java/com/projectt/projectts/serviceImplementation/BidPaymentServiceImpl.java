@@ -101,7 +101,7 @@ public class BidPaymentServiceImpl extends AbstractService implements IBidPaymen
 		new_payment.setAmount(payment.getAmount());
 		new_payment.setRequest(brepo.findById(UUID.fromString(payment.getRequestId())).get());
 		new_payment.setClient(userRepo.findById(UUID.fromString(payment.getClientId())).get());
-		new_payment.setStatus(ApprovalStatus.CREATED);
+		new_payment.setApprovalStatus(ApprovalStatus.CREATED);
 		prepo.save(new_payment);
 		
 		return new_payment;

@@ -16,10 +16,13 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 @Slf4j
 public class TokenProvider {
+	  private static final Logger logger = LoggerFactory.getLogger(TokenProvider.class);
 
 	private AppProperties appProperties;
 
@@ -51,15 +54,15 @@ public class TokenProvider {
 			Jwts.parser().setSigningKey(appProperties.getAuth().getTokenSecret()).parseClaimsJws(authToken);
 			return true;
 		} catch (SignatureException ex) {
-			log.error("Invalid JWT signature");
+			logger.error("Invalid JWT signature");
 		} catch (MalformedJwtException ex) {
-			log.error("Invalid JWT token");
+			logger.error("Invalid JWT token");
 		} catch (ExpiredJwtException ex) {
-			log.error("Expired JWT token");
+			logger.error("Expired JWT token");
 		} catch (UnsupportedJwtException ex) {
-			log.error("Unsupported JWT token");
+			logger.error("Unsupported JWT token");
 		} catch (IllegalArgumentException ex) {
-			log.error("JWT claims string is empty.");
+			logger.error("JWT claims string is empty.");
 		}
 		return false;
 	}

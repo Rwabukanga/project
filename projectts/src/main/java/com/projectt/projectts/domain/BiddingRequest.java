@@ -42,11 +42,80 @@ public class BiddingRequest  extends DomainDTO {
     
     
     @Enumerated(EnumType.STRING)
-    private ApprovalStatus Estatus;
+    private ApprovalStatus approvalStatus;
+
+
+	public String getUuid() {
+		return uuid;
+	}
+
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+
+	public double getMinAmount() {
+		return minAmount;
+	}
+
+
+	public void setMinAmount(double minAmount) {
+		this.minAmount = minAmount;
+	}
+
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+
+	public String getReferenceName() {
+		return referenceName;
+	}
+
+
+	public void setReferenceName(String referenceName) {
+		this.referenceName = referenceName;
+	}
+
+
+	public String getRequestNumber() {
+		return requestNumber;
+	}
+
+
+	public void setRequestNumber(String requestNumber) {
+		this.requestNumber = requestNumber;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public ApprovalStatus getApprovalStatus() {
+		return approvalStatus;
+	}
+
+
+	public void setApprovalStatus(ApprovalStatus approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+
+
 	
-    
-	
-    
     
     
 

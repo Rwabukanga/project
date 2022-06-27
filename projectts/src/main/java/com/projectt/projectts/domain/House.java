@@ -65,6 +65,78 @@ public class House extends DomainDTO {
 	    
 	    @OneToOne
 	    private Location location;
+
+		public double getPrice() {
+			return price;
+		}
+
+		public void setPrice(double price) {
+			this.price = price;
+		}
+
+		public int getRooms() {
+			return rooms;
+		}
+
+		public void setRooms(int rooms) {
+			this.rooms = rooms;
+		}
+
+		public int getBedrooms() {
+			return bedrooms;
+		}
+
+		public void setBedrooms(int bedrooms) {
+			this.bedrooms = bedrooms;
+		}
+
+		public EPropertyType getType() {
+			return type;
+		}
+
+		public void setType(EPropertyType type) {
+			this.type = type;
+		}
+
+		public String getPrimary_image() {
+			return primary_image;
+		}
+
+		public void setPrimary_image(String primary_image) {
+			this.primary_image = primary_image;
+		}
+
+		public Registrar getOwner() {
+			return owner;
+		}
+
+		public void setOwner(Registrar owner) {
+			this.owner = owner;
+		}
+
+		public Date getBidStartdDate() {
+			return bidStartdDate;
+		}
+
+		public void setBidStartdDate(Date bidStartdDate) {
+			this.bidStartdDate = bidStartdDate;
+		}
+
+		public Date getBidEndDate() {
+			return bidEndDate;
+		}
+
+		public void setBidEndDate(Date bidEndDate) {
+			this.bidEndDate = bidEndDate;
+		}
+
+		public Location getLocation() {
+			return location;
+		}
+
+		public void setLocation(Location location) {
+			this.location = location;
+		}
 	    
 	
 

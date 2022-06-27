@@ -79,4 +79,110 @@ public class Car extends DomainDTO {
 	@JoinColumn(name = "LOCATION_ID", nullable = false)
 	private Location location;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getModelType() {
+		return modelType;
+	}
+
+	public void setModelType(String modelType) {
+		this.modelType = modelType;
+	}
+
+	public String getPlateNumber() {
+		return plateNumber;
+	}
+
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
+	}
+
+	public int getNumberOfSeat() {
+		return numberOfSeat;
+	}
+
+	public void setNumberOfSeat(int numberOfSeat) {
+		this.numberOfSeat = numberOfSeat;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public EPropertyType getType() {
+		return type;
+	}
+
+	public void setType(EPropertyType type) {
+		this.type = type;
+	}
+
+	public String getPrimaryImage() {
+		return primaryImage;
+	}
+
+	public void setPrimaryImage(String primaryImage) {
+		this.primaryImage = primaryImage;
+	}
+
+	public Registrar getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Registrar owner) {
+		this.owner = owner;
+	}
+
+	public Date getBidStartdDate() {
+		return bidStartdDate;
+	}
+
+	public void setBidStartdDate(Date bidStartdDate) {
+		this.bidStartdDate = bidStartdDate;
+	}
+
+	public Date getBidEndDate() {
+		return bidEndDate;
+	}
+
+	public void setBidEndDate(Date bidEndDate) {
+		this.bidEndDate = bidEndDate;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	
+	
+
 }

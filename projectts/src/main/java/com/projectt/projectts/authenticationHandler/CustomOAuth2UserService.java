@@ -36,8 +36,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
 		try {
 			return processOAuth2User(oAuth2UserRequest, oAuth2User);
-		} catch (AuthenticationException ex) {
-			throw ex;
 		} catch (Exception ex) {
 			// Throwing an instance of AuthenticationException will trigger the
 			// OAuth2AuthenticationFailureHandler

@@ -26,5 +26,40 @@ public class Bidding extends DomainDTO {
     private User client;
     
     @Enumerated(EnumType.STRING)
-    private ApprovalStatus status;
+    private ApprovalStatus approval_status;
+
+	public double getAmount() {
+		return Amount;
+	}
+
+	public void setAmount(double amount) {
+		Amount = amount;
+	}
+
+	public BiddingRequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(BiddingRequest request) {
+		this.request = request;
+	}
+
+	public User getClient() {
+		return client;
+	}
+
+	public void setClient(User client) {
+		this.client = client;
+	}
+
+	public ApprovalStatus getApproval_status() {
+		return approval_status;
+	}
+
+	public void setApproval_status(ApprovalStatus approval_status) {
+		this.approval_status = approval_status;
+	}
+
+	
+    
 }

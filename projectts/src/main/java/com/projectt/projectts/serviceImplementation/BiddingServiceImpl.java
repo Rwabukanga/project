@@ -102,7 +102,7 @@ public class BiddingServiceImpl extends AbstractService implements IBidService {
 	public Bidding createBid(InnerBidData data) {
 		Bidding new_bid=new Bidding();
 		new_bid.setAmount(data.getAmount());
-		new_bid.setStatus(ApprovalStatus.CREATED);
+		new_bid.setApproval_status(ApprovalStatus.CREATED);
 		new_bid.setClient(userRepo.findById(UUID.fromString(data.getClientId())).get());
 		new_bid.setRequest(bidrepo.findById(UUID.fromString(data.getRequestId())).get());
 		
@@ -117,6 +117,7 @@ public class BiddingServiceImpl extends AbstractService implements IBidService {
 		}else {
 			new_last=new LastBid();
 			new_last.setAmount(data.getAmount());
+			new_last.setClient(userRepo.findById(UUID.fromString(data.getClientId())).get());
 			lastRepo.save(new_last);
 		}
 		brepo.save(new_bid);

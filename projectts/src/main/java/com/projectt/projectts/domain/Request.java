@@ -42,6 +42,54 @@ public class Request extends DomainDTO {
 	    @NotEmpty(message= "{referenceName.notNull}")
 	   	@Column(name = "referenceName")
 	    private String referenceName;
+
+		public Location getLocation() {
+			return location;
+		}
+
+		public void setLocation(Location location) {
+			this.location = location;
+		}
+
+		public User getUser() {
+			return user;
+		}
+
+		public void setUser(User user) {
+			this.user = user;
+		}
+
+		public PropertyType getPropertType() {
+			return propertType;
+		}
+
+		public void setPropertType(PropertyType propertType) {
+			this.propertType = propertType;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getReferenceId() {
+			return referenceId;
+		}
+
+		public void setReferenceId(String referenceId) {
+			this.referenceId = referenceId;
+		}
+
+		public String getReferenceName() {
+			return referenceName;
+		}
+
+		public void setReferenceName(String referenceName) {
+			this.referenceName = referenceName;
+		}
 	    
 		
 

@@ -20,5 +20,21 @@ public class BidAmountConfig extends DomainDTO {
 	 @Enumerated(EnumType.STRING)
 	    private ConfigType type;
 
+	public double getAmount() {
+		return Amount;
+	}
 
+	public void setAmount(double amount) {
+		Amount = amount;
+	}
+
+	public ConfigType getType() {
+		return type;
+	}
+
+	public void setType(ConfigType type) {
+		this.type = type;
+	}
+
+	 
 }

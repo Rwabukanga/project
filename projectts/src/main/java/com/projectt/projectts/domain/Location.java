@@ -44,4 +44,46 @@ public class Location extends DomainDTO {
 	@Transient
 	private UUID parentIds;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Location getParent() {
+		return parent;
+	}
+
+	public void setParent(Location parent) {
+		this.parent = parent;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public UUID getParentIds() {
+		return parentIds;
+	}
+
+	public void setParentIds(UUID parentIds) {
+		this.parentIds = parentIds;
+	}
+	
+	
+
 }

@@ -28,6 +28,30 @@ public class Gallery extends DomainDTO {
 	    @NotEmpty(message= "{referenceName.notNull}")
 	    @Column(name = "referenceName")
 	    private String referenceName;
+
+		public String getPath() {
+			return path;
+		}
+
+		public void setPath(String path) {
+			this.path = path;
+		}
+
+		public String getReferenceId() {
+			return referenceId;
+		}
+
+		public void setReferenceId(String referenceId) {
+			this.referenceId = referenceId;
+		}
+
+		public String getReferenceName() {
+			return referenceName;
+		}
+
+		public void setReferenceName(String referenceName) {
+			this.referenceName = referenceName;
+		}
 	    
 	    
 		

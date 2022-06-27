@@ -177,7 +177,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
-		brequest.setEstatus(ApprovalStatus.CREATED);
+		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(p.getId().toString());
 		brequest.setReferenceName("Plot");
 		brepo.save(brequest);
@@ -209,7 +209,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
-		brequest.setEstatus(ApprovalStatus.CREATED);
+		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(c.getId().toString());
 		brequest.setReferenceName("Car");
 		brepo.save(brequest);
@@ -241,7 +241,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
-		brequest.setEstatus(ApprovalStatus.CREATED);
+		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(h.getId().toString());
 		brequest.setReferenceName("House");
 		brepo.save(brequest);
