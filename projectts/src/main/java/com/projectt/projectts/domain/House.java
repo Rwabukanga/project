@@ -20,6 +20,7 @@ import ebaza.framework.persistance.domain.DomainDTO;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.EqualsAndHashCode.Include;
 
 @Entity
 @Table(name = "HOUSE")
@@ -29,7 +30,10 @@ import lombok.Setter;
 public class House extends DomainDTO {
 	
 	
-	
+		@Column(name = "CODE", nullable = false)
+		@Include
+		private String code;
+
 	    @NotEmpty(message= "{price.notNull}")
 	    @Column(name = "price")
 	    private double price;
@@ -137,7 +141,15 @@ public class House extends DomainDTO {
 		public void setLocation(Location location) {
 			this.location = location;
 		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
 	    
-	
+		
 
 }

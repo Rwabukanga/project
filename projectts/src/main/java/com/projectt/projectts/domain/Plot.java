@@ -17,6 +17,7 @@ import ebaza.framework.persistance.domain.DomainDTO;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.EqualsAndHashCode.Include;
 
 @Entity
 @Table(name = "Plot")
@@ -32,7 +33,10 @@ public class Plot extends DomainDTO {
 //	    private long id;
 //	    
     private String uuid = UUID.randomUUID().toString();
-	    
+		@Column(name = "CODE", nullable = false)
+		@Include
+		private String code;
+
 	    @NotEmpty(message= "{width.notNull}")
 	    @Column(name = "width", nullable = false)
 	    private double width;
@@ -160,6 +164,14 @@ public class Plot extends DomainDTO {
 
 		public void setLocation(Location location) {
 			this.location = location;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
 		}
 	    
 	    

@@ -42,6 +42,8 @@ public class Request extends DomainDTO {
 	    @NotEmpty(message= "{referenceName.notNull}")
 	   	@Column(name = "referenceName")
 	    private String referenceName;
+	    
+	    private String requestCode;
 
 		public Location getLocation() {
 			return location;
@@ -89,6 +91,14 @@ public class Request extends DomainDTO {
 
 		public void setReferenceName(String referenceName) {
 			this.referenceName = referenceName;
+		}
+
+		public String getRequestCode() {
+			return requestCode;
+		}
+
+		public void setRequestCode(String requestCode) {
+			this.requestCode = requestCode;
 		}
 	    
 		

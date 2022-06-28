@@ -25,6 +25,11 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 public class Car extends DomainDTO {
 
+	@Column(name = "CODE", nullable = false)
+	@Include
+	private String code;
+
+	
 	@NotEmpty(message = "{Name.notNull}")
 	@Column(name = "NAME", nullable = false)
 	@Include
@@ -78,6 +83,8 @@ public class Car extends DomainDTO {
 	@OneToOne
 	@JoinColumn(name = "LOCATION_ID", nullable = false)
 	private Location location;
+	
+	
 
 	public String getName() {
 		return name;
@@ -181,6 +188,14 @@ public class Car extends DomainDTO {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	

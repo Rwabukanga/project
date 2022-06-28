@@ -66,6 +66,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	@Override
 	public Request create(Request request) {
 		try {
+			request.setRequestCode(generateRequestCode());
 			return Rrepo.save(request);
 		} catch (Exception e) {
 			throw handleException(e);
@@ -149,6 +150,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 			r.setDescription(data.getDescription());
 			r.setLocation(l);
 			r.setUser(u);
+			r.setRequestCode(generateRequestCode());
 			r.setPropertType(PropertyType.valueOf(data.getPropertyType()));
 			
 			return r;
@@ -173,6 +175,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		p.setBidStartdDate(data.getBidStartdDate());
 		p.setBidEndDate(data.getBidEndDate());
 		p.setLocation(re.getLocation());
+		p.setCode(generatePlotCode());
 		prepo.save(p);
 		
 		BiddingRequest brequest=new BiddingRequest();
@@ -184,6 +187,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		re.setReferenceId(p.getId().toString());
 		re.setReferenceName("Plot");
+		re.setRequestCode(re.getRequestCode()+'/'+p.getCode());
 		Rrepo.save(re);
 			return re;	
 	}
@@ -204,6 +208,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		c.setNumberOfSeat(data.getNumberOfSeat());
 		c.setBidStartdDate(data.getBidStartdDate());
 		c.setBidEndDate(data.getBidEndDate());
+		c.setCode(generateCarCode());
 		c.setLocation(re.getLocation());
 	
 		
@@ -216,6 +221,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		re.setReferenceId(c.getId().toString());
 		re.setReferenceName("Car");
+		re.setRequestCode(re.getRequestCode()+'/'+c.getCode());
 		Rrepo.save(re);
 			return re;	
 	}
@@ -223,7 +229,6 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	@Override
 	public Request createHouseRequest(HouseRequestData data, UUID id) {
 		Request re=null;
-		Car c=new Car();
 		Optional<Request> br = Rrepo.findByIdAndStatus(id, EStatus.ACTIVE);
 		if (br.isPresent()) {
 			re= br.get();
@@ -237,6 +242,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		h.setBidStartdDate(data.getBidStartDate());
 		h.setBidEndDate(data.getBidEndDate());
 		h.setLocation(re.getLocation());
+		h.setCode(generateHouseCode());
 		hrepo.save(h);
 		
 		BiddingRequest brequest=new BiddingRequest();
@@ -248,8 +254,81 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		
 		re.setReferenceId(h.getId().toString());
 		re.setReferenceName("House");
+		re.setRequestCode(re.getRequestCode()+'/'+h.getCode());
 		Rrepo.save(re);
 			return re;	
+	}
+	
+	public  String generateRequestCode(){
+		String code="";
+		
+		List<Request>list=(List<Request>) Rrepo.findAll();
+		int size=list.size();
+	
+		if(size==0){
+			code="0001";
+		}else{
+			
+			long newCode=(size+1);
+			
+			code="000"+newCode; 
+		}
+		
+		return code;
+	}
+	
+	public  String generateHouseCode(){
+		String code="";
+		
+		List<House>list=(List<House>) hrepo.findAll();
+		int size=list.size();
+	
+		if(size==0){
+			code="0001";
+		}else{
+			
+			long newCode=(size+1);
+			
+			code="000"+newCode; 
+		}
+		
+		return code;
+	}
+	
+	public  String generateCarCode(){
+		String code="";
+		
+		List<Car>list=(List<Car>) crepo.findAll();
+		int size=list.size();
+	
+		if(size==0){
+			code="0001";
+		}else{
+			
+			long newCode=(size+1);
+			
+			code="000"+newCode; 
+		}
+		
+		return code;
+	}
+	
+	public  String generatePlotCode(){
+		String code="";
+		
+		List<Plot>list=(List<Plot>) prepo.findAll();
+		int size=list.size();
+	
+		if(size==0){
+			code="0001";
+		}else{
+			
+			long newCode=(size+1);
+			
+			code="000"+newCode; 
+		}
+		
+		return code;
 	}
 
 }
