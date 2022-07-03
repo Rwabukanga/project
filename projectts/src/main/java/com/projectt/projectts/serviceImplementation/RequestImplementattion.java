@@ -3,17 +3,22 @@ package com.projectt.projectts.serviceImplementation;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.projectt.projectts.domain.ApprovalStatus;
 import com.projectt.projectts.domain.BiddingRequest;
 import com.projectt.projectts.domain.Car;
 import com.projectt.projectts.domain.EPropertyType;
+import com.projectt.projectts.domain.Gallery;
 import com.projectt.projectts.domain.House;
 import com.projectt.projectts.domain.Location;
 import com.projectt.projectts.domain.Plot;
@@ -26,6 +31,7 @@ import com.projectt.projectts.innerdomain.InnerRequestData;
 import com.projectt.projectts.innerdomain.PlotRequestData;
 import com.projectt.projectts.repository.BiddingRquestRepository;
 import com.projectt.projectts.repository.CarRepository;
+import com.projectt.projectts.repository.GalleryRepository;
 import com.projectt.projectts.repository.HouseRepository;
 import com.projectt.projectts.repository.IUserRepository;
 import com.projectt.projectts.repository.LocationRepository;
@@ -35,8 +41,11 @@ import com.projectt.projectts.service.IRequestService;
 import com.projectt.projectts.utility.IUserMessage;
 
 import ebaza.common.framework.exception.RequestException;
+import ebaza.framework.files.properties.FileStoragePropertie;
+import ebaza.framework.files.service.IFileStorageService;
 import ebaza.framework.persistance.enumerator.EStatus;
 import ebaza.framework.persistance.service.AbstractService;
+
 
 @Service
 @Transactional
@@ -62,6 +71,20 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	
 	@Autowired
 	HouseRepository hrepo;
+	
+	@Value("${files.uploadImage}")
+	private String uploadDir;
+	@Value("${files.fullUrls}")
+	private String fullUrls;
+	@Value("${files.serverUrl}")
+	private String serverUrl;
+	
+	String[] ALLOWED_IMAGE_EXTENSION = { "image/jpeg", "image/png", "image/gif", "image/jpg" };
+	@Autowired
+	private IFileStorageService fileStorageService;
+	@Autowired
+	private GalleryRepository grepo;
+
 
 	@Override
 	public Request create(Request request) {
@@ -161,7 +184,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	}
 
 	@Override
-	public Request createPlotRequest(PlotRequestData data, UUID id) {
+	public Request createPlotRequest(PlotRequestData data, UUID id,MultipartFile[] file) {
 		Request re=null;
 		Plot p=new Plot();
 		Optional<Request> br = Rrepo.findByIdAndStatus(id, EStatus.ACTIVE);
@@ -178,6 +201,14 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		p.setCode(generatePlotCode());
 		prepo.save(p);
 		
+		for (String image : this.uploadImages(file)) {
+			Gallery gallery = new Gallery();
+			gallery.setReferenceId(p.getId().toString());
+			gallery.setPath(image);
+			gallery.setReferenceName("Plot");
+			grepo.save(gallery);
+		}
+		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
 		brequest.setApprovalStatus(ApprovalStatus.CREATED);
@@ -193,7 +224,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	}
 
 	@Override
-	public Request createCarRequest(CarRequestData data, UUID id) {
+	public Request createCarRequest(CarRequestData data, UUID id,MultipartFile[] file) {
 		Request re=null;
 		Car c=new Car();
 		Optional<Request> br = Rrepo.findByIdAndStatus(id, EStatus.ACTIVE);
@@ -210,7 +241,15 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		c.setBidEndDate(data.getBidEndDate());
 		c.setCode(generateCarCode());
 		c.setLocation(re.getLocation());
-	
+		crepo.save(c);
+		
+		for (String image : this.uploadImages(file)) {
+			Gallery gallery = new Gallery();
+			gallery.setReferenceId(c.getId().toString());
+			gallery.setPath(image);
+			gallery.setReferenceName("Car");
+			grepo.save(gallery);
+		}
 		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
@@ -227,7 +266,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 	}
 
 	@Override
-	public Request createHouseRequest(HouseRequestData data, UUID id) {
+	public Request createHouseRequest(HouseRequestData data, UUID id,MultipartFile[] file) {
 		Request re=null;
 		Optional<Request> br = Rrepo.findByIdAndStatus(id, EStatus.ACTIVE);
 		if (br.isPresent()) {
@@ -244,6 +283,14 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		h.setLocation(re.getLocation());
 		h.setCode(generateHouseCode());
 		hrepo.save(h);
+		
+		for (String image : this.uploadImages(file)) {
+			Gallery gallery = new Gallery();
+			gallery.setReferenceId(h.getId().toString());
+			gallery.setPath(image);
+			gallery.setReferenceName("House");
+			grepo.save(gallery);
+		}
 		
 		BiddingRequest brequest=new BiddingRequest();
 		brequest.setMinAmount(data.getPrice());
@@ -329,6 +376,20 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		}
 		
 		return code;
+	}
+	
+	private List<String> uploadImages(MultipartFile[] files) {
+		if (files.length == 0 || files[0].getOriginalFilename() == null) {
+			return null;
+		}
+		FileStoragePropertie fileStoragePropertie = new FileStoragePropertie();
+		fileStoragePropertie.setUploadDir(fullUrls + this.uploadDir);
+		String[] allowedExtension = ALLOWED_IMAGE_EXTENSION;
+		List<String> result = Arrays.asList(files).stream()
+				.map(file -> fileStorageService.storeFile(file, fileStoragePropertie, Arrays.asList(allowedExtension)))
+				.collect(Collectors.toList());
+
+		return result;
 	}
 
 }

@@ -68,21 +68,21 @@ public class RequestController {
 
 	
 	@RequestMapping(value = "{id}/plot/complete_request/", method = RequestMethod.POST)
-	public ResponseEntity<Object> PlotRequest(@RequestBody PlotRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+	public ResponseEntity<Object> PlotRequest(@RequestBody PlotRequestData params, @PathVariable("id") UUID id ,@RequestPart("files") MultipartFile[] files,HttpSession session) throws ParseException {
 
-		return new ResponseEntity<>(requestService.createPlotRequest(params, id), HttpStatus.OK);
+		return new ResponseEntity<>(requestService.createPlotRequest(params, id,files), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "{id}/car/complete_request/", method = RequestMethod.POST)
-	public ResponseEntity<Object> CarRequest(@RequestBody CarRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+	public ResponseEntity<Object> CarRequest(@RequestBody CarRequestData params, @PathVariable("id") UUID id ,@RequestPart("files") MultipartFile[] files,HttpSession session) throws ParseException {
 
-		return new ResponseEntity<>(requestService.createCarRequest(params, id), HttpStatus.OK);
+		return new ResponseEntity<>(requestService.createCarRequest(params, id,files), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "{id}/car/complete_request/", method = RequestMethod.POST)
-	public ResponseEntity<Object> HouseRequest(@RequestBody HouseRequestData params, @PathVariable("id") UUID id ,HttpSession session) throws ParseException {
+	@RequestMapping(value = "{id}/house/complete_request/", method = RequestMethod.POST)
+	public ResponseEntity<Object> HouseRequest(@RequestBody HouseRequestData params, @PathVariable("id") UUID id ,@RequestPart("files") MultipartFile[] files,HttpSession session) throws ParseException {
 
-		return new ResponseEntity<>(requestService.createHouseRequest(params, id), HttpStatus.OK);
+		return new ResponseEntity<>(requestService.createHouseRequest(params, id,files), HttpStatus.OK);
 	}
 
 
