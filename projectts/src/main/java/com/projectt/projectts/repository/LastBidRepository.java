@@ -23,5 +23,5 @@ public interface LastBidRepository extends IBaseRepository<LastBid, UUID> {
     List<LastBid> findByStatus(EStatus status );
     
     List<LastBid> findByClientId(UUID id);
-	Optional<LastBid> findByRequestId(UUID id);
+	Optional<LastBid> findByBidId(UUID id);
 }

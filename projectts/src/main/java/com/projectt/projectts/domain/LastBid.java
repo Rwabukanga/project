@@ -21,7 +21,7 @@ public class LastBid extends DomainDTO {
 	private double Amount;
 	
 	@OneToOne
-	private BiddingRequest request;
+	private Bidding bid;
     
 	@ManyToOne
     private User client;
@@ -34,14 +34,7 @@ public class LastBid extends DomainDTO {
 		Amount = amount;
 	}
 
-	public BiddingRequest getRequest() {
-		return request;
-	}
-
-	public void setRequest(BiddingRequest request) {
-		this.request = request;
-	}
-
+	
 	public User getClient() {
 		return client;
 	}
@@ -49,6 +42,15 @@ public class LastBid extends DomainDTO {
 	public void setClient(User client) {
 		this.client = client;
 	}
+
+	public Bidding getBid() {
+		return bid;
+	}
+
+	public void setBid(Bidding bid) {
+		this.bid = bid;
+	}
+	
 	
 	
 
