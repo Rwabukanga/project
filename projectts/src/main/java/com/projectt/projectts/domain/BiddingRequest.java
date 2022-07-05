@@ -30,7 +30,7 @@ public class BiddingRequest  extends DomainDTO {
     
     @NotEmpty(message= "{referenceName.notNull}")
    	@Column(name = "referenceName")
-    private String referenceName;
+    private PropertyType  referenceName;
     
     @NotEmpty(message= "{requestNumber.notNull}")
    	@Column(name = "requestNumber")
@@ -75,14 +75,7 @@ public class BiddingRequest  extends DomainDTO {
 	}
 
 
-	public String getReferenceName() {
-		return referenceName;
-	}
-
-
-	public void setReferenceName(String referenceName) {
-		this.referenceName = referenceName;
-	}
+	
 
 
 	public String getRequestNumber() {
@@ -112,6 +105,16 @@ public class BiddingRequest  extends DomainDTO {
 
 	public void setApprovalStatus(ApprovalStatus approvalStatus) {
 		this.approvalStatus = approvalStatus;
+	}
+
+
+	public PropertyType getReferenceName() {
+		return referenceName;
+	}
+
+
+	public void setReferenceName(PropertyType referenceName) {
+		this.referenceName = referenceName;
 	}
 
 

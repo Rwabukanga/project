@@ -27,7 +27,7 @@ public class Gallery extends DomainDTO {
 	    
 	    @NotEmpty(message= "{referenceName.notNull}")
 	    @Column(name = "referenceName")
-	    private String referenceName;
+	    private PropertyType referenceName;
 
 		public String getPath() {
 			return path;
@@ -45,14 +45,15 @@ public class Gallery extends DomainDTO {
 			this.referenceId = referenceId;
 		}
 
-		public String getReferenceName() {
+		public PropertyType getReferenceName() {
 			return referenceName;
 		}
 
-		public void setReferenceName(String referenceName) {
+		public void setReferenceName(PropertyType referenceName) {
 			this.referenceName = referenceName;
 		}
-	    
+
+		
 	    
 		
 	    

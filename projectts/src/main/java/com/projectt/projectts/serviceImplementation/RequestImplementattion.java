@@ -205,7 +205,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 			Gallery gallery = new Gallery();
 			gallery.setReferenceId(p.getId().toString());
 			gallery.setPath(image);
-			gallery.setReferenceName("Plot");
+			gallery.setReferenceName(PropertyType.Plot);
 			grepo.save(gallery);
 		}
 		
@@ -213,11 +213,11 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		brequest.setMinAmount(data.getPrice());
 		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(p.getId().toString());
-		brequest.setReferenceName("Plot");
+		brequest.setReferenceName(PropertyType.Plot);
 		brepo.save(brequest);
 		
 		re.setReferenceId(p.getId().toString());
-		re.setReferenceName("Plot");
+		re.setReferenceName(PropertyType.Plot);
 		re.setRequestCode(re.getRequestCode()+'/'+p.getCode());
 		Rrepo.save(re);
 			return re;	
@@ -247,7 +247,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 			Gallery gallery = new Gallery();
 			gallery.setReferenceId(c.getId().toString());
 			gallery.setPath(image);
-			gallery.setReferenceName("Car");
+			gallery.setReferenceName(PropertyType.Car);
 			grepo.save(gallery);
 		}
 		
@@ -255,11 +255,11 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		brequest.setMinAmount(data.getPrice());
 		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(c.getId().toString());
-		brequest.setReferenceName("Car");
+		brequest.setReferenceName(PropertyType.Car);
 		brepo.save(brequest);
 		
 		re.setReferenceId(c.getId().toString());
-		re.setReferenceName("Car");
+		re.setReferenceName(PropertyType.Car);
 		re.setRequestCode(re.getRequestCode()+'/'+c.getCode());
 		Rrepo.save(re);
 			return re;	
@@ -288,7 +288,7 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 			Gallery gallery = new Gallery();
 			gallery.setReferenceId(h.getId().toString());
 			gallery.setPath(image);
-			gallery.setReferenceName("House");
+			gallery.setReferenceName(PropertyType.House);
 			grepo.save(gallery);
 		}
 		
@@ -296,11 +296,11 @@ public class RequestImplementattion extends AbstractService implements IRequestS
 		brequest.setMinAmount(data.getPrice());
 		brequest.setApprovalStatus(ApprovalStatus.CREATED);
 		brequest.setReferenceId(h.getId().toString());
-		brequest.setReferenceName("House");
+		brequest.setReferenceName(PropertyType.House);
 		brepo.save(brequest);
 		
 		re.setReferenceId(h.getId().toString());
-		re.setReferenceName("House");
+		re.setReferenceName(PropertyType.House);
 		re.setRequestCode(re.getRequestCode()+'/'+h.getCode());
 		Rrepo.save(re);
 			return re;	

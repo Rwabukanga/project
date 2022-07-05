@@ -41,7 +41,7 @@ public class Request extends DomainDTO {
 	    
 	    @NotEmpty(message= "{referenceName.notNull}")
 	   	@Column(name = "referenceName")
-	    private String referenceName;
+	    private PropertyType  referenceName;
 	    
 	    private String requestCode;
 
@@ -85,14 +85,7 @@ public class Request extends DomainDTO {
 			this.referenceId = referenceId;
 		}
 
-		public String getReferenceName() {
-			return referenceName;
-		}
-
-		public void setReferenceName(String referenceName) {
-			this.referenceName = referenceName;
-		}
-
+		
 		public String getRequestCode() {
 			return requestCode;
 		}
@@ -100,7 +93,16 @@ public class Request extends DomainDTO {
 		public void setRequestCode(String requestCode) {
 			this.requestCode = requestCode;
 		}
+
+		public PropertyType getReferenceName() {
+			return referenceName;
+		}
+
+		public void setReferenceName(PropertyType referenceName) {
+			this.referenceName = referenceName;
+		}
 	    
+		
 		
 
 }
